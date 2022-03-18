@@ -152,27 +152,94 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-weblearn" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-github+hexo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/18/weblearn/">weblearn</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/18/weblearn/" class="archive-article-date">
-  	<time datetime="2022-03-18T02:56:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-18</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
+        <h1 id="github搭建博客参考链接："><a href="#github搭建博客参考链接：" class="headerlink" title="github搭建博客参考链接："></a>github搭建博客参考链接：</h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/35668237">参考链接</a></p>
+<h2 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h2><ol>
+<li>下载安装的nodejs版本要大于12.3</li>
+<li>生成密钥SSH key 的时候要注意生成的文件的路径<br>会让你指定生成的文件名，如果不指定，会生成到默认的文件夹中**(C:\Users\Zhanchen.Liu.ssh)** id_rsa.pub，可以用everything这个软件查找。</li>
+<li>在github上生成ssh时要将本地的id_rsa中的密钥拷贝进去。长的类似这样 <em>ssh-rsa AAAAB3NzaC1yc2EAAAAD…….</em></li>
+</ol>
+<h2 id="相关工具以及安装包参考链接："><a href="#相关工具以及安装包参考链接：" class="headerlink" title="相关工具以及安装包参考链接："></a>相关工具以及安装包参考链接：</h2><ol>
+<li><a target="_blank" rel="noopener" href="http://nodejs.cn/">nodejs官网</a> 一般不下载最新的。点击下载，找到所有下载选项，找到想要的版本。一般windows上下载 <strong>.msi</strong> 文件安装。</li>
+<li><a target="_blank" rel="noopener" href="https://atom.io/">Atom</a> 下载markdown编辑器。这个编辑器不仅可以写markdown语法。还可以写js+h5</li>
+</ol>
+<h2 id="常用的命令行"><a href="#常用的命令行" class="headerlink" title="常用的命令行"></a>常用的命令行</h2><p>安装npm</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+<hr>
+<p>创建博客</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init blog</span><br></pre></td></tr></table></figure>
+<hr>
+<p>安装博客依赖项</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ncd blog</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
+<hr>
+<p>生成静态页面</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
+<hr>
+<p>启动博客服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+<hr>
+<p>提交代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+<hr>
+<p>创建博客</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new post <span class="string">&quot;blog&quot;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>链接github与本地</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">&quot;liiuzhanchen&quot;</span></span><br><span class="line">$ git config --global user.email <span class="string">&quot;liuzhanchen1987@163.com&quot;</span></span><br><span class="line">$ ssh-keygen -t rsa -C <span class="string">&quot;liuzhanchen1987@163.com&quot;</span></span><br><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="修改-config-yml"><a href="#修改-config-yml" class="headerlink" title="修改_config.yml"></a>修改_config.yml</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:liiuzhanchen/xiaomangguo.github.io</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/03/18/github+hexo/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
         
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-weblearn" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
       
 
       
